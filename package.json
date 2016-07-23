@@ -6,8 +6,13 @@
     "start": "node node_modules/react-native/local-cli/cli.js start"
   },
   "dependencies": {
+    "firebase": "^3.2.0",
     "react": "15.2.1",
     "react-native": "^0.29.2",
-    "react-native-vector-icons": "^2.0.3"
+    "react-native-drawer": "^2.2.6",
+    "react-native-vector-icons": "^2.0.3",
+    "react-redux": "4.4.0",
+    "redux": "3.3.1",
+    "redux-thunk": "1.0.3"
   }
 }
