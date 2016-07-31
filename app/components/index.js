@@ -2,23 +2,36 @@ import React, { Component } from 'react';
 import {
   AppRegistry,
   StyleSheet,
+  DrawerLayoutAndroid,
   Text,
   View
 } from 'react-native';
+import Nav from "./global_widgets/nav"
 
 export default class Index extends Component {
+
+  navigationView(){
+    return(
+      <View style={{flex: 1, backgroundColor: '#fff'}}>
+      <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>Im in the Drawer!</Text>
+    </View>
+    )
+  }
+
+  componentDidMount(){
+
+  }
+
   render() {
     return (
+      
+      <View style={{flex:1}}>
       <View style={styles.container}>
+      <Nav color ="#fff" />
         <Text style={styles.welcome}>
-          Welcome to React Native!
+          Welcome to Medellin, Colombia!
         </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Shake or press menu button for dev menu
-        </Text>
+      </View>
       </View>
     );
   }
@@ -26,19 +39,18 @@ export default class Index extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#ff585b',
+    height:400
   },
   welcome: {
     fontSize: 20,
     textAlign: 'center',
+    color:'#fff',
     margin: 10,
   },
   instructions: {
     textAlign: 'center',
-    color: '#333333',
+    color:'#fff',
     marginBottom: 5,
   },
 });
