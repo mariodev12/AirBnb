@@ -12,6 +12,6 @@ import {
   View
 } from 'react-native';
 
-import AirBnb from './app/container';
+import AirBnb from './app/container/indexios';
 
 AppRegistry.registerComponent('AirBnb', () => AirBnb);
