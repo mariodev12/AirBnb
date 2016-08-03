@@ -156,7 +156,8 @@ export default class Index extends Component {
     super(props)
 
     this.state = {
-      datasource: ds.cloneWithRows(cities)
+      datasource: ds.cloneWithRows(cities),
+      dataviewed:ds.cloneWithRows(viewed)
     }
   }
   componentDidMount(){
@@ -170,7 +171,7 @@ if(i < 5){
   i = 0
 }
     return(
-      <Image source={images[i]} resizeMode="stretch" style={{width:330, height:220, margin:5, justifyContent:'center', alignItems:'center'}}>
+      <Image source={images[i]} resizeMode="stretch" style={{width:330, height:220, margin:5,marginBottom:30, justifyContent:'center', alignItems:'center'}}>
       <Text style={{backgroundColor:'rgba(0,0,0,0)', color:'#fff', fontSize:30, fontWeight:'700'}}>{val.city_name}</Text>
       <Text style={{backgroundColor:'rgba(0,0,0,0)', color:'#fff',fontSize:14, fontWeight:'600'}}>{val.date_from} - {val.date_to}</Text>
       </Image>
@@ -184,21 +185,31 @@ if(j < 5){
   j = 0
 }
     return(
+      <View style={{width:340, height:280}}>
       <Image source={images2[j]} resizeMode="stretch" style={{width:330, height:220, margin:5, justifyContent:'space-between'}}>
       <View style={styles.row}><View/>
       <Icon name='favorite-border' size={25} style={{backgroundColor:'rgba(0,0,0,0)', margin:10}} color='#fff' />
 </View>
       <View style={styles.row}>
-      <View style={{backgroundColor:'rgba(0,0,0,0.5)'}}><Text style={{color:'#fff', margin:10, }}>$13</Text></View>
+      <View style={{backgroundColor:'rgba(0,0,0,0.6)', marginBottom:10, paddingLeft:10}}><Text style={{color:'#fff', margin:10, fontSize:16, fontWeight:'500'}}>{val.price}</Text></View>
       </View>
       </Image>
+      <View style={styles.row}>
+      <View style={{margin:5}}>
+      <Text 
+      numberOfLines = {1}
+      style={{fontSize:14, width:190}}>{val.name}</Text>
+      <Text style={{fontWeight:'300', fontSize:13}}>Private Room</Text>
+      </View>
+      </View>
+      </View>
       )
   }
 
   render() {
     return (
       <View style={{flex:1}}>
-      <ScrollView style={{flex:1, marginTop:10,}}>
+      <ScrollView style={{flex:1,}}>
       <View style={styles.container}>
       
       <Nav color ="#fff" />
@@ -220,7 +231,7 @@ if(j < 5){
       <View style={styles.container2}>
       <Text style={styles.title}>Recently Viewed</Text>
       <ListView 
-      dataSource = {this.state.datasource}
+      dataSource = {this.state.dataviewed}
       renderRow={(rowData) => this.viewed(rowData)}
       horizontal = {true}
       />
@@ -242,7 +253,6 @@ const styles = StyleSheet.create({
   },
   container2: {
     backgroundColor: '#fff',
-    height:330,
     borderBottomWidth:1,
     borderBottomColor:'#d3d3d3',
 
