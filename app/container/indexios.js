@@ -3,7 +3,7 @@ import * as firebase from 'firebase';
   // firebaseApp.database().ref().on("value", (snap) => {console.log(snap.val())})
 
 import React, { Component } from 'react';
-import {DrawerLayoutAndroid, View, Text} from 'react-native';
+import {DrawerLayoutAndroid, View, Text, StatusBar} from 'react-native';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
@@ -28,7 +28,10 @@ export default class Index extends Component {
 
   render() {
     return (
-      <View style={{flex:1, paddingTop:10, backgroundColor:'#ff585b'}}>
+      <View style={{flex:1, backgroundColor:'#ff585b'}}>
+      <StatusBar
+     barStyle="light-content"
+   />
       <Provider store={store}>
         <Components />
       </Provider>

@@ -24,96 +24,66 @@ var cities = [{"id":1,"city_name":"Três Pontas","date_from":"9/21/2015","date_t
 {"id":8,"city_name":"San Rafael","date_from":"2/5/2016","date_to":"1/18/2016"},
 {"id":9,"city_name":"Wólka Pełkińska","date_from":"4/25/2016","date_to":"2/14/2016"},
 {"id":10,"city_name":"Presnenskiy","date_from":"2/9/2016","date_to":"3/1/2016"}]
-var viewed =[{
+var viewed = [{
   "id": 1,
-  "price": "$26.11",
-  "reviews": 62,
-  "name": "Nam tristique tortor eu pede.",
-  "location": "Huanza"
+  "ava": "https://robohash.org/rerumvelitaliquam.jpg?size=50x50&set=set1",
+  "price": "$22.17",
+  "name": "dui vel sem sed",
+  "reviews": 52
 }, {
   "id": 2,
-  "price": "$16.34",
-  "reviews": 76,
-  "name": "Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat.",
-  "location": "Abuyog"
+  "ava": "https://robohash.org/aspernaturesterror.jpg?size=50x50&set=set1",
+  "price": "$39.55",
+  "name": "nec sem duis aliquam",
+  "reviews": 78
 }, {
   "id": 3,
-  "price": "$13.64",
-  "reviews": 89,
-  "name": "Nunc rhoncus dui vel sem. Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci.",
-  "location": "Loma Bonita"
+  "ava": "https://robohash.org/nulladoloremest.png?size=50x50&set=set1",
+  "price": "$39.84",
+  "name": "accumsan tellus nisi",
+  "reviews": 89
 }, {
   "id": 4,
-  "price": "$16.28",
-  "reviews": 57,
-  "name": "Nullam porttitor lacus at turpis.",
-  "location": "Sambungjaya"
+  "ava": "https://robohash.org/utdoloribusasperiores.bmp?size=50x50&set=set1",
+  "price": "$30.73",
+  "name": "porttitor pede justo eu",
+  "reviews": 47
 }, {
   "id": 5,
-  "price": "$25.62",
-  "reviews": 18,
-  "name": "Quisque ut erat. Curabitur gravida nisi at nibh.",
-  "location": "Krajan"
+  "ava": "https://robohash.org/odioautsaepe.bmp?size=50x50&set=set1",
+  "price": "$22.70",
+  "name": "fermentum donec ut mauris",
+  "reviews": 53
 }, {
   "id": 6,
-  "price": "$10.65",
-  "reviews": 45,
-  "name": "Nunc nisl.",
-  "location": "North Shore"
+  "ava": "https://robohash.org/ullamdoloredolor.jpg?size=50x50&set=set1",
+  "price": "$25.42",
+  "name": "mauris eget massa tempor",
+  "reviews": 75
 }, {
   "id": 7,
-  "price": "$12.51",
-  "reviews": 42,
-  "name": "Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam. Nam tristique tortor eu pede.",
-  "location": "Héroumbili"
+  "ava": "https://robohash.org/eaquenostrumofficiis.jpg?size=50x50&set=set1",
+  "price": "$23.02",
+  "name": "augue vestibulum ante",
+  "reviews": 55
 }, {
   "id": 8,
-  "price": "$11.88",
-  "reviews": 54,
-  "name": "Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus.",
-  "location": "Campinas"
+  "ava": "https://robohash.org/esseomnisdolore.png?size=50x50&set=set1",
+  "price": "$12.46",
+  "name": "lacus curabitur at",
+  "reviews": 74
 }, {
   "id": 9,
-  "price": "$17.35",
-  "reviews": 94,
-  "name": "Pellentesque at nulla. Suspendisse potenti.",
-  "location": "Sredniy"
+  "ava": "https://robohash.org/temporibusenimquisquam.bmp?size=50x50&set=set1",
+  "price": "$18.26",
+  "name": "in sagittis dui",
+  "reviews": 29
 }, {
   "id": 10,
-  "price": "$15.29",
-  "reviews": 62,
-  "name": "Integer tincidunt ante vel ipsum.",
-  "location": "Ngamba"
-}, {
-  "id": 11,
-  "price": "$24.67",
-  "reviews": 16,
-  "name": "Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.",
-  "location": "Panamá"
-}, {
-  "id": 12,
-  "price": "$19.46",
-  "reviews": 78,
-  "name": "Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.",
-  "location": "Jessore"
-}, {
-  "id": 13,
-  "price": "$23.84",
-  "reviews": 91,
-  "name": "Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat.",
-  "location": "Viale"
-}, {
-  "id": 14,
-  "price": "$16.10",
-  "reviews": 32,
-  "name": "Vestibulum sed magna at nunc commodo placerat. Praesent blandit. Nam nulla.",
-  "location": "Saint Louis"
-}, {
-  "id": 15,
-  "price": "$10.96",
-  "reviews": 61,
-  "name": "Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.",
-  "location": "Torre"
+  "ava": "https://robohash.org/delectussolutaut.bmp?size=50x50&set=set1",
+  "price": "$29.68",
+  "name": "luctus ultricies eu",
+  "reviews": 92
 }];
 
 var image1 = require("./../img/image1.png")
@@ -185,7 +155,7 @@ if(j < 5){
   j = 0
 }
     return(
-      <View style={{width:340, height:280}}>
+      <View style={{width:340, height:300}}>
       <Image source={images2[j]} resizeMode="stretch" style={{width:330, height:220, margin:5, justifyContent:'space-between'}}>
       <View style={styles.row}><View/>
       <Icon name='favorite-border' size={25} style={{backgroundColor:'rgba(0,0,0,0)', margin:10}} color='#fff' />
@@ -195,12 +165,13 @@ if(j < 5){
       </View>
       </Image>
       <View style={styles.row}>
-      <View style={{margin:5}}>
+      <View style={{margin:5, justifyContent:'center'}}>
       <Text 
       numberOfLines = {1}
       style={{fontSize:14, width:190}}>{val.name}</Text>
       <Text style={{fontWeight:'300', fontSize:13}}>Private Room</Text>
       </View>
+      <Image source={{uri: val.ava}} resizeMode='contain' style={{width:40, height:40, margin:10, alignSelf:'center'}} />
       </View>
       </View>
       )
@@ -249,7 +220,6 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: '#ff585b',
     height:400,
-    padding:5
   },
   container2: {
     backgroundColor: '#fff',

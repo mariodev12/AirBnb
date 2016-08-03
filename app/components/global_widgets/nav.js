@@ -7,7 +7,7 @@ export default class Nav extends Component {
 
   render() {
     return (
-      <View style={{padding:10}}>
+      <View style={{padding:15}}>
       <Icon color={this.props.color} name="menu" size={25} />
       </View>
     );
