@@ -14,6 +14,7 @@ import Nav from "./global_widgets/nav"
 import Icon from 'react-native-vector-icons/MaterialIcons';
 var i = -1;
 var j = -1;
+
 var cities = [{"id":1,"city_name":"Três Pontas","date_from":"9/21/2015","date_to":"1/3/2016"},
 {"id":2,"city_name":"Dongxi","date_from":"10/30/2015","date_to":"2/28/2016"},
 {"id":3,"city_name":"Gaoqiao","date_from":"4/28/2016","date_to":"9/10/2016"},
@@ -101,6 +102,19 @@ var image11 = require("./../img/image11.jpg")
 var image12 = require("./../img/image12.jpg")
 var image13 = require("./../img/image13.jpg")
 
+var favs = [
+{name:"It Yourts So Good", homes : 18, image: image7},
+{name:"Underground Homes", homes : 4, image: image8},
+{name:"Geodesic Domes", homes : 5, image: image9},
+{name:"Smells Like Eames Spirit", homes : 22, image: image10},
+{name:"Best of Bali", homes : 18, image: image11},
+{name:"Family Fun around the World", homes : 26, image: image12},
+{name:"Castles", homes : 26, image: image13},
+{name:"Around The World in 15 Listings", homes : 15, image: image4},
+{name:"Milano Design", homes : 20, image: image8},
+{name:"Oui, Oui Paris", homes : 25, image: image6},
+]
+
 var images = [
 image1,
 image2,
@@ -127,13 +141,22 @@ export default class Index extends Component {
 
     this.state = {
       datasource: ds.cloneWithRows(cities),
-      dataviewed:ds.cloneWithRows(viewed)
+      dataviewed:ds.cloneWithRows(viewed),
+      datafav:ds.cloneWithRows(favs)
     }
   }
   componentDidMount(){
 
   }
 
+  favourites(val){
+     return(
+      <Image source={val.image} resizeMode="stretch" style={{width:330, height:220, margin:5,marginBottom:30, justifyContent:'center', alignItems:'center'}}>
+      <Text style={{backgroundColor:'rgba(0,0,0,0)', textAlign:'center', color:'#fff', fontSize:25, fontWeight:'700'}}>{val.name}</Text>
+      <Text style={{backgroundColor:'rgba(0,0,0,0)', color:'#fff',fontSize:13, fontWeight:'600'}}>{val.homes} homes</Text>
+      </Image>
+      )
+  }
   cityBox(val){
 if(i < 5){
   i++
@@ -217,8 +240,8 @@ if(j < 5){
       <View style={styles.container2}>
       <Text style={styles.title}>AirBnb Favourites</Text>
       <ListView 
-      dataSource = {this.state.dataviewed}
-      renderRow={(rowData) => this.viewed(rowData)}
+      dataSource = {this.state.datafav}
+      renderRow={(rowData) => this.favourites(rowData)}
       horizontal = {true}
       />
       </View>
