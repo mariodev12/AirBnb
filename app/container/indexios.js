@@ -3,12 +3,13 @@ import * as firebase from 'firebase';
   // firebaseApp.database().ref().on("value", (snap) => {console.log(snap.val())})
 
 import React, { Component } from 'react';
-import { View, Text, StatusBar} from 'react-native';
+import { View, Text, StatusBar, TouchableOpacity} from 'react-native';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import Drawer from 'react-native-drawer'
 import ControlPanel from '../components/controlPanel'
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import * as reducers from '../reducers';
 import Components from '../components';
@@ -27,31 +28,35 @@ var config = {
   const firebaseApp = firebase.initializeApp(config);
 
 export default class Index extends Component {
-closeControlPanel = () => {
+closeControlPanel(){
     this._drawer.close()
-  };
-  openControlPanel = () => {
-    this._drawer.open()
-  };
+  }
+  openControlPanel(){
+    this.refs.drawer.open()
+  }
 
   componentDidMount(){
-    this.openControlPanel()
   }
   render() {
     return (
-      <View style={{flex:1, backgroundColor:'#ff585b'}}>
+      <View
+       style={{flex:1, backgroundColor:'#ff585b'}}>
       <StatusBar
-     barStyle="light-content"
-   />
+     barStyle="light-content"/>
    <Drawer
-        ref={(ref) => this._drawer = ref}
+        ref = "drawer"
         tapToClose={true}
-        openDrawerOffset={100}
-        tweenHandler={Drawer.tweenPresets.parallax}
+        type="overlay"
+        tapToClose={true}
+        openDrawerOffset={0.2}
+        panCloseMask={0.2}
         content={<ControlPanel />}
         >
+        <TouchableOpacity onPress = {() => this.openControlPanel()} style={{padding:20}}>
+      <Icon color="#fff" name="menu" size={25} />
+      </TouchableOpacity>
       <Provider store={store}>
-        <Components />
+        <Components/>
       </Provider>
       </Drawer>
       </View>);

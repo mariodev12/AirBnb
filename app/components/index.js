@@ -138,6 +138,7 @@ var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 export default class Index extends Component {
   constructor(props){
     super(props)
+    console.log(props)
 
     this.state = {
       datasource: ds.cloneWithRows(cities),
@@ -205,8 +206,6 @@ if(j < 5){
       <View style={{flex:1}}>
       <ScrollView style={{flex:1,}}>
       <View style={styles.container}>
-      
-      <Nav color ="#fff" />
       <Image source = {require('./../img/logoWhite.png')} resizeMode="contain" style={{width:40, height:40, marginLeft:20, marginTop:15}} />
         <Text style={styles.main}>
           Welcome to Medellin, Colombia!
