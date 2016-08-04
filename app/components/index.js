@@ -207,6 +207,22 @@ if(j < 5){
       horizontal = {true}
       />
       </View>
+      <View style={styles.container2}>
+      <Text style={styles.title}>Just For The Weekend</Text>
+      <ListView 
+      dataSource = {this.state.dataviewed}
+      renderRow={(rowData) => this.viewed(rowData)}
+      horizontal = {true}
+      />
+      <View style={styles.container2}>
+      <Text style={styles.title}>AirBnb Favourites</Text>
+      <ListView 
+      dataSource = {this.state.dataviewed}
+      renderRow={(rowData) => this.viewed(rowData)}
+      horizontal = {true}
+      />
+      </View>
+      </View>
       </ScrollView>
       <TouchableOpacity style={{width:60, alignItems:'center', justifyContent:'center', height:60, backgroundColor:'#ff585b', borderRadius:30, position:'absolute', bottom:20, right:20}}>
       <Icon name="search" size={22} color="#fff"/>
