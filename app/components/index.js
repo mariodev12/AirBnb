@@ -207,6 +207,7 @@ if(j < 5){
       <View style={styles.container}>
       
       <Nav color ="#fff" />
+      <Image source = {require('./../img/logoWhite.png')} resizeMode="contain" style={{width:40, height:40, marginLeft:20, marginTop:15}} />
         <Text style={styles.main}>
           Welcome to Medellin, Colombia!
         </Text>
