@@ -10,9 +10,10 @@ import thunk from 'redux-thunk';
 import Drawer from 'react-native-drawer'
 import ControlPanel from '../components/controlPanel'
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import Nav from "../components/global_widgets/nav"
 
 import * as reducers from '../reducers';
-import Components from '../components';
+import Components from '../components/index';
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 const reducer = combineReducers(reducers);
@@ -52,11 +53,8 @@ closeControlPanel(){
         panCloseMask={0.2}
         content={<ControlPanel />}
         >
-        <TouchableOpacity onPress = {() => this.openControlPanel()} style={{padding:20, paddingBottom:10}}>
-      <Icon color="#fff" name="menu" size={25} />
-      </TouchableOpacity>
       <Provider store={store}>
-        <Components/>
+        <Components onPress = {() => this.openControlPanel()}/>
       </Provider>
       </Drawer>
       </View>);

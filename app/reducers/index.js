@@ -4,6 +4,7 @@ import React, {Component, ScrollView, Text, View, Image, Dimensions } from 'reac
    var userData;
 
 const initialState = {
+	navColor:'#fff',
   userDeets: {
 
  },
@@ -12,7 +13,7 @@ const initialState = {
 
 };
 
-export default function counter(state = initialState, action = {}) {
+export function airbnb(state = initialState, action = {}) {
     switch(action.type){
    case types.LOGIN:
 
