@@ -24,7 +24,7 @@ export default class Control extends Component {
   }
 
   render() {
-    return(<View style={{backgroundColor:'rgba(255,255,255,0.9)', flex:1,}}>
+    return(<View style={{backgroundColor:'rgba(255,255,255,0.93)', flex:1,}}>
       <Profile {...this.props} />
       <ListView
       dataSource={this.state.dataSource}
