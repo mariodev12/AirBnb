@@ -6,6 +6,10 @@ import {bindActionCreators} from 'redux';
 import * as actions from '../actions/actions';
 import { connect } from 'react-redux';
 import Nav from "./global_widgets/nav"
+import Drawer from 'react-native-drawer'
+import ControlPanel from './controlPanel'
+import Icon from 'react-native-vector-icons/MaterialIcons';
+
 
 import Home from './home';
 import Inbox from './inbox';
@@ -27,6 +31,13 @@ connect(state => ({
 class Root extends Component {
   constructor(props) {
     super(props);
+  }
+
+  closeControlPanel(){
+    this._drawer.close()
+  }
+  openControlPanel(){
+    this.refs.drawer.open()
   }
 
   renderScene(route, navigator) {
@@ -93,13 +104,24 @@ class Root extends Component {
     const { state, actions } = this.props;
     console.log(this.props)
     return (
+
       <View style ={{flex:1}}>
-      <Nav {...this.props} color ={this.props.state.navColor} />
+       <Drawer
+        ref = "drawer"
+        tapToClose={true}
+        type="overlay"
+        tapToClose={true}
+        openDrawerOffset={0.2}
+        panCloseMask={0.2}
+        content={<ControlPanel {...this.props}/>}
+        >
+      <Nav {...this.props} onPress = {() => this.openControlPanel()} color ={this.props.state.navColor} />
      <Navigator
      style={{flex: 1}}
      ref={'NAV'}
      initialRoute={{id: 'home', name: 'home'}}
      renderScene={this.renderScene.bind(this)}/>
+     </Drawer>
      </View>
      );
   }

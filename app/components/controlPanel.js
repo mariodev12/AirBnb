@@ -16,6 +16,7 @@ var eachNav = [
 export default class Control extends Component {
   constructor(props){
     super(props)
+    console.log(this.props)
     this.state = {
       dataSource: ds.cloneWithRows(eachNav),
     }

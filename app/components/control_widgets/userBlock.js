@@ -13,7 +13,13 @@ export default class UserBlock extends Component {
   }
 
   render() {
-    return(<View />)
+    return(<View style={{flexDirection:'row', padding:10}}>
+    	<Image source ={{uri : this.props.state.userDeets.image}} resizeMode="contain" style={{width:50, height:50, borderRadius:25}} />
+    	<View>
+    	<Text>{this.props.state.userDeets.first_name}</Text>
+    	<Text>{this.props.state.userDeets.email}</Text>
+    	</View>
+    	</View>)
   }
 
 

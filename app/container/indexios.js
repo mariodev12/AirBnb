@@ -7,10 +7,7 @@ import { View, Text, StatusBar, TouchableOpacity} from 'react-native';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
-import Drawer from 'react-native-drawer'
-import ControlPanel from '../components/controlPanel'
-import Icon from 'react-native-vector-icons/MaterialIcons';
-import Nav from "../components/global_widgets/nav"
+
 
 import * as reducers from '../reducers';
 import Components from '../components/index';
@@ -29,12 +26,7 @@ var config = {
   const firebaseApp = firebase.initializeApp(config);
 
 export default class Index extends Component {
-closeControlPanel(){
-    this._drawer.close()
-  }
-  openControlPanel(){
-    this.refs.drawer.open()
-  }
+
 
   componentDidMount(){
   }
@@ -44,19 +36,9 @@ closeControlPanel(){
        style={{flex:1, backgroundColor:'#ff585b'}}>
       <StatusBar
      barStyle="light-content"/>
-   <Drawer
-        ref = "drawer"
-        tapToClose={true}
-        type="overlay"
-        tapToClose={true}
-        openDrawerOffset={0.2}
-        panCloseMask={0.2}
-        content={<ControlPanel />}
-        >
       <Provider store={store}>
-        <Components onPress = {() => this.openControlPanel()}/>
+        <Components/>
       </Provider>
-      </Drawer>
       </View>);
   }
 }

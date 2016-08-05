@@ -6,7 +6,10 @@ import React, {Component, ScrollView, Text, View, Image, Dimensions } from 'reac
 const initialState = {
 	navColor:'#fff',
   userDeets: {
-
+  	email:"s.okoro07@gmail.com",
+  	first_name:'Samuel',
+  	last_name:'Okoro',
+  	image:'https://scontent-dft4-1.xx.fbcdn.net/v/t1.0-9/13434970_10209841206091706_4316142461215331993_n.jpg?oh=6dcd8a17df9c06adfaab46ac1e108d52&oe=58271748'
  },
  trips: {},
  listings: {}
