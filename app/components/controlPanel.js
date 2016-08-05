@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, TouchableOpacity, Text, ListView } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import EachComp from './control_widgets/eachNav'
+import Profile from './control_widgets/userBlock'
 var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 var eachNav = [
 {icon: "ios-search", name:"Search", route:"search"},
@@ -24,6 +25,7 @@ export default class Control extends Component {
 
   render() {
     return(<View style={{backgroundColor:'rgba(255,255,255,0.9)', flex:1,}}>
+      <Profile {...this.props} />
       <ListView
       dataSource={this.state.dataSource}
       renderRow={(rowData) => <EachComp icon = {rowData.icon}>{rowData.name}</EachComp>}
