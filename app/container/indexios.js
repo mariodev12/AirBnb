@@ -52,7 +52,7 @@ closeControlPanel(){
         panCloseMask={0.2}
         content={<ControlPanel />}
         >
-        <TouchableOpacity onPress = {() => this.openControlPanel()} style={{padding:20}}>
+        <TouchableOpacity onPress = {() => this.openControlPanel()} style={{padding:20, paddingBottom:10}}>
       <Icon color="#fff" name="menu" size={25} />
       </TouchableOpacity>
       <Provider store={store}>
