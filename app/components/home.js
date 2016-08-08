@@ -247,7 +247,7 @@ if(j < 5){
       </View>
       </View>
       </ScrollView>
-      <TouchableOpacity style={{width:60, alignItems:'center', justifyContent:'center', height:60, backgroundColor:'#ff585b', borderRadius:30, position:'absolute', bottom:20, right:20}}>
+      <TouchableOpacity style={{width:60, borderWidth:3, borderColor:'rgba(0,0,0,0.2)', alignItems:'center', justifyContent:'center', height:60, backgroundColor:'#ff585b', borderRadius:30, position:'absolute', bottom:20, right:20}}>
       <Icon name="search" size={22} color="#fff"/>
       </TouchableOpacity>
       </View>

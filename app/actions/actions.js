@@ -17,6 +17,14 @@ export function setNav(nav) {
   };
 }
 
+export function changeNav(propz){
+  console.log(propz)
+  return{
+  type: types.CHANGE_NAV_STYLE,
+  prop: propz
+  }
+}
+
 export function navigate(id){
   return {
     type: types.NAVTO,

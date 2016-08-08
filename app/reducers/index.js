@@ -5,6 +5,7 @@ import React, {Component, ScrollView, Text, View, Image, Dimensions } from 'reac
 
 const initialState = {
 	navColor:'#fff',
+  navStyle:{backgroundColor:'#ff585b', color:'#fff', padding:20},
   userDeets: {
   	email:"s.okoro07@gmail.com",
   	first_name:'Samuel',
@@ -38,6 +39,24 @@ return {
   ...state,
   openMenu: false 
 };
+
+case types.CHANGE_NAV_STYLE:
+console.log(action.prop)
+
+if(action.prop == "light"){
+return {
+...state,
+navStyle : {background:'rgba(0,0,0,0)', color:'#333'}
+}
+}
+else if(action.prop == "dark"){
+  return{
+    ...state,
+    navStyle: {background:'#ff585b', color:'#fff'}
+  }
+} 
+
+
 
 
 

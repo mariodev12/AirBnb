@@ -33,7 +33,7 @@ export default class Index extends Component {
   render() {
     return (
       <View
-       style={{flex:1, backgroundColor:'#ff585b'}}>
+       style={{flex:1}}>
       <StatusBar
      barStyle="light-content"/>
       <Provider store={store}>
