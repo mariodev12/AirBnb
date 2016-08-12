@@ -82,6 +82,16 @@ var past = [{
   }
 }]
 
+var current = {
+  "id": 7,
+  "image": "https://pixabay.com/static/uploads/photo/2014/05/21/14/53/pier-349672_960_720.jpg",
+  "city": "Catac",
+  "country": "Peru",
+  "date": {
+    "from": "21.07.2016",
+    "to": "09.05.2016"
+  }}
+
 var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 
 export default class Inbox extends Component {
@@ -102,7 +112,7 @@ export default class Inbox extends Component {
         style ={{width:350, height:250, margin:5, justifyContent:'center', alignItems:'center', alignSelf:'center'}}
         resizeMode = "stretch"
         >
-      <Text style={{backgroundColor:'rgba(0,0,0,0)', color:'#fff', fontWeight:'700', fontSize:22}}>{val.city}, {val.country}</Text>
+      <Text style={{backgroundColor:'rgba(0,0,0,0)', color:'#fff', fontWeight:'700', fontSize:24}}>{val.city}, {val.country}</Text>
       <Text style={{backgroundColor:'rgba(0,0,0,0)', color:'#fff', fontWeight:'400', fontSize:14}}>{val.date.from} - {val.date.to}</Text>
         </Image>
         )
@@ -112,6 +122,11 @@ export default class Inbox extends Component {
     return (
       <ScrollView style={styles.container}>
       <TitleBar name = "Trips" sub = "Almost time to pack your bags" />
+      <View style={{borderBottomWidth:1, borderColor:"#e3e3e3", paddingBottom:30}}>
+      <Text style={{fontSize:24, color:'#222', margin:20, marginLeft:5, fontWeight:'300'}}>Current Trip</Text>
+      {this.renderThis(current)}
+      </View>
+      <Text style={{fontSize:24, color:'#222', margin:20, marginLeft:5, fontWeight:'300'}}>Past Trips</Text>
       <ListView
         dataSource = {this.state.dataSource}
         renderRow = {(val) => this.renderThis(val)}

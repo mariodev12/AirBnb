@@ -248,6 +248,7 @@ export default class Inbox extends Component {
        <View>
        <Text style={{margin:5, marginLeft:0, color:'#888', fontSize:18}}>Messages</Text>
        </View>
+
        <ListView 
           noScroll={true}
           dataSource = {this.state.datasource}
