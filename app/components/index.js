@@ -119,7 +119,7 @@ class Root extends Component {
      <Navigator
      style={{flex: 1}}
      ref={'NAV'}
-     initialRoute={{id: 'inbox', name: 'inbox'}}
+     initialRoute={{id: 'trips', name: 'trips'}}
      renderScene={this.renderScene.bind(this)}/>
      </Drawer>
      </View>
