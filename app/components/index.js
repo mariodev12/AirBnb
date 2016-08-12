@@ -93,7 +93,6 @@ class Root extends Component {
     if (routeId === 'trips') {
       return (
         <Trips {...this.props} 
-        fireAuth = {firebaseAuth}
         navigator={navigator} />
         );
     }
