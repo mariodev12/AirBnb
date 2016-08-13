@@ -34,7 +34,7 @@ class Root extends Component {
   }
 
   closeControlPanel(){
-    this._drawer.close()
+    this.refs.drawer.close()
   }
   openControlPanel(){
     this.refs.drawer.open()
