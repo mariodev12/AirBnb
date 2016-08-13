@@ -47,13 +47,13 @@ console.log(action.prop)
 if(action.prop == "light"){
 return {
 ...state,
-navStyle : {background:'rgba(0,0,0,0)', color:'#333'}
+navStyle : {backgroundColor:'#fff', color:'#333'}
 }
 }
 else if(action.prop == "dark"){
   return{
     ...state,
-    navStyle: {background:'#ff585b', color:'#fff'}
+    navStyle: {backgroundColor:'#ff585b', color:'#fff'}
   }
 } 
 

@@ -147,6 +147,7 @@ export default class Index extends Component {
     }
   }
   componentDidMount(){
+    this.props.actions.changeNav('dark')
     this.props.actions.setNav(this.props.navigator);
   }
 

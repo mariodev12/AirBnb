@@ -13,7 +13,8 @@ export default class EachNav extends Component {
   }
   onRoute(){
         this.props.state.navigator.replace({id:this.props.route})
-    this.props.onPress()
+    
+    setTimeout(() => { this.props.onPress() }, 700);
 
   }
 
