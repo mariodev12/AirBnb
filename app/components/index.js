@@ -112,13 +112,13 @@ class Root extends Component {
         tapToClose={true}
         openDrawerOffset={0.2}
         panCloseMask={0.2}
-        content={<ControlPanel {...this.props}/>}
+        content={<ControlPanel {...this.props} onPress = {() => this.closeControlPanel()}/>}
         >
       <Nav {...this.props} onPress = {() => this.openControlPanel()}  />
      <Navigator
      style={{flex: 1}}
      ref={'NAV'}
-     initialRoute={{id: 'trips', name: 'trips'}}
+     initialRoute={{id: 'home', name: 'home'}}
      renderScene={this.renderScene.bind(this)}/>
      </Drawer>
      </View>

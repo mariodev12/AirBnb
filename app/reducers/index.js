@@ -13,7 +13,8 @@ const initialState = {
   	image:'https://scontent-dft4-1.xx.fbcdn.net/v/t1.0-9/13434970_10209841206091706_4316142461215331993_n.jpg?oh=6dcd8a17df9c06adfaab46ac1e108d52&oe=58271748'
  },
  trips: {},
- listings: {}
+ listings: {},
+ navigator:""
 
 };
 

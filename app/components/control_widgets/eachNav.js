@@ -13,10 +13,11 @@ export default class EachNav extends Component {
   }
 
   render() {
-    return(<View style={{flexDirection:'row'}}>
+    return(
+      <TouchableOpacity style={{flexDirection:'row'}} onPress ={() => this.props.state.navigator.replace({id:this.props.route})}>
     	<Icon name ={this.props.icon} size={25} color="#333" style={{ margin:15}} />
     	<Text style = {{fontSize:15, fontWeight:'300', margin:15}}>{this.props.children}</Text>
-    	</View>)
+    	</TouchableOpacity>)
   }
 
 
