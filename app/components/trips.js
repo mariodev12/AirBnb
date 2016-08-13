@@ -104,6 +104,9 @@ export default class Inbox extends Component {
       dataSource: ds.cloneWithRows(past)
     }
   }
+    componentDidMount(){
+    this.props.close();
+  }
 
   renderThis(val){
     return(

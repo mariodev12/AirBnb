@@ -239,6 +239,10 @@ export default class Inbox extends Component {
     }
   }
 
+  componentDidMount(){
+    this.props.close();
+  }
+
   render() {
     return (
       <ScrollView style={styles.container}>

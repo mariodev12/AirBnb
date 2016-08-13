@@ -20,7 +20,11 @@ import Trips from './trips';
 import Wish from './wish';
 import EachCity from './each_city';
 
+var drawerRef = {
+  close: () => console.log("close"),
+  open: () => console.log("open"),
 
+}
 
 
 
@@ -33,11 +37,14 @@ class Root extends Component {
     super(props);
   }
 
+  componentDidMount(){
+    drawerRef = this.refs.drawer;
+  }
   closeControlPanel(){
-    this.refs.drawer.close()
+    drawerRef.close()
   }
   openControlPanel(){
-    this.refs.drawer.open()
+    drawerRef.open()
   }
 
   renderScene(route, navigator) {
@@ -49,6 +56,7 @@ class Root extends Component {
         <Home
         {...this.props} 
         userData ={route.userData}
+        close = {() => this.closeControlPanel()}
         navigator={navigator} />
         );
     }
@@ -57,6 +65,7 @@ class Root extends Component {
         <Invite
         {...this.props} 
         data ={route.data}
+        close = {() => this.closeControlPanel()}
         navigator={navigator} />
         );
     }
@@ -65,6 +74,7 @@ class Root extends Component {
           <Profile
               {...this.props}
               data ={route.data}
+              close = {() => this.closeControlPanel()}
               navigator={navigator} />
       );
     }
@@ -73,6 +83,7 @@ class Root extends Component {
           <Inbox
               {...this.props}
               data ={route.data}
+              close = {() => this.closeControlPanel()}
               navigator={navigator} />
       );
     }
@@ -81,18 +92,22 @@ class Root extends Component {
         <Wish
         {...this.props} 
         data ={route.data}
+        close = {() => this.closeControlPanel()}
         navigator={navigator} />
         );
     }
 
     if (routeId === 'settings') {
       return (
-        <Settings {...this.props} navigator={navigator} />
+        <Settings {...this.props} 
+        close = {() => this.closeControlPanel()}
+        navigator={navigator} />
         );
     }
     if (routeId === 'trips') {
       return (
         <Trips {...this.props} 
+        close = {() => this.closeControlPanel()}
         navigator={navigator} />
         );
     }
