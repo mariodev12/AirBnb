@@ -16,6 +16,7 @@ import Inbox from './inbox';
 import Invite from './invite';
 import Profile from './profile';
 import Settings from './settings';
+import Search from './search';
 import Trips from './trips';
 import Wish from './wish';
 import EachCity from './each_city';
@@ -107,6 +108,13 @@ class Root extends Component {
     if (routeId === 'trips') {
       return (
         <Trips {...this.props} 
+        close = {() => this.closeControlPanel()}
+        navigator={navigator} />
+        );
+    }
+    if (routeId === 'search') {
+      return (
+        <Search {...this.props} 
         close = {() => this.closeControlPanel()}
         navigator={navigator} />
         );
