@@ -21,7 +21,7 @@ import {
   View
 } from 'react-native';
 
-var count = 0
+var count;
 var convo = ["Are you a robot though dude?", "Working on it man", "Yeah Whatever fam. Call me when you start taking life seriously"]
 
 var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
@@ -29,6 +29,7 @@ var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 export default class Inbox extends Component {
   constructor(props){
     super(props)
+    count = 1
     console.log(this.props)
     this.props.actions.changeNav('light')
     this.state = {
@@ -46,9 +47,9 @@ export default class Inbox extends Component {
     if(count % 2){
         return(
           <View style={{flexDirection:'row', alignItems:'flex-end', margin:5}}>
-          <Image source ={{uri: "https://robohash.org/recusandaeperspiciatisunde.png?size=50x50&set=set1"}} resizeMode ="contain" style={{height:30, width:30, margin:5, borderRadius:25, backgroundColor:'#f8f8f8'}} />
+          <Image source ={{uri: "https://robohash.org/recusandaeperspiciatisunde.png?size=50x50&set=set1"}} resizeMode ="contain" style={{height:40, width:40, margin:5, borderRadius:20, backgroundColor:'#f8f8f8'}} />
           <View style={{width:220, borderRadius:10, backgroundColor:'#f4f4f4', padding:10}}>
-          <Text style={{fontSize:16, color:'#444',fontWeight:'600'}}>{x}</Text>
+          <Text style={{fontSize:15, color:'#555',fontWeight:'600'}}>{x}</Text>
           </View>
           </View>
           )
@@ -56,9 +57,9 @@ export default class Inbox extends Component {
         return(
           <View style={{flexDirection:'row', alignSelf:'flex-end', alignItems:'flex-end', margin:5}}>
           <View style={{width:220, borderRadius:10, backgroundColor:'#00b499', padding:10}}>
-          <Text style={{fontSize:16, color:'#fff',fontWeight:'600'}}>{x}</Text>
+          <Text style={{fontSize:15, color:'#fff',fontWeight:'600'}}>{x}</Text>
           </View>
-          <Image source ={{uri: "https://robohash.org/recusandaeperspiciatisunde.png?size=50x50&set=set1"}} resizeMode ="contain" style={{height:30, width:30, margin:5, borderRadius:25, backgroundColor:'#f8f8f8'}} />
+          <Image source ={{uri: "https://scontent-dft4-1.xx.fbcdn.net/v/t1.0-9/13434970_10209841206091706_4316142461215331993_n.jpg?oh=6dcd8a17df9c06adfaab46ac1e108d52&oe=58271748"}} resizeMode ="contain" style={{height:40, width:40, margin:5, borderRadius:20, backgroundColor:'#f8f8f8'}} />
 
           </View>
           )}
