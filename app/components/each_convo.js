@@ -9,11 +9,13 @@ import EachMessage from './inbox_widgets/eachMessage'
 import TitleBar from './inbox_widgets/titleBar'
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import InvertibleScrollView from 'react-native-invertible-scroll-view';
+const {width, height} = Dimensions.get('window');
 import {
   AppRegistry,
   StyleSheet,
   ListView,
   TextInput,
+  Dimensions,
   Image,
   Text,
   View
@@ -21,6 +23,7 @@ import {
 
 var count = 0
 var convo = ["Are you a robot though dude?", "Working on it man", "Yeah Whatever fam. Call me when you start taking life seriously"]
+
 var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 
 export default class Inbox extends Component {
@@ -29,7 +32,7 @@ export default class Inbox extends Component {
     console.log(this.props)
     this.props.actions.changeNav('light')
     this.state = {
-      datasource: ds.cloneWithRows(convo)
+      datasource: ds.cloneWithRows(convo.reverse())
     }
   }
 
@@ -39,14 +42,26 @@ export default class Inbox extends Component {
 
   eachMessage(x){
     count ++;
-    return(
-      <View style={{flexDirection:'row', alignItems:'flex-end', margin:5}}>
-      <Image source ={{uri: "https://robohash.org/recusandaeperspiciatisunde.png?size=50x50&set=set1"}} resizeMode ="contain" style={{height:30, width:30, margin:5, borderRadius:25, backgroundColor:'#f8f8f8'}} />
-      <View style={{width:200, backgroundColor:'#f4f4f4', padding:10}}>
-      <Text style={{fontSize:15, color:'#444'}}>{x}</Text>
-      </View>
-      </View>
-      )
+
+    if(count % 2){
+        return(
+          <View style={{flexDirection:'row', alignItems:'flex-end', margin:5}}>
+          <Image source ={{uri: "https://robohash.org/recusandaeperspiciatisunde.png?size=50x50&set=set1"}} resizeMode ="contain" style={{height:30, width:30, margin:5, borderRadius:25, backgroundColor:'#f8f8f8'}} />
+          <View style={{width:220, borderRadius:10, backgroundColor:'#f4f4f4', padding:10}}>
+          <Text style={{fontSize:16, color:'#444',fontWeight:'600'}}>{x}</Text>
+          </View>
+          </View>
+          )
+    }else{
+        return(
+          <View style={{flexDirection:'row', alignSelf:'flex-end', alignItems:'flex-end', margin:5}}>
+          <View style={{width:220, borderRadius:10, backgroundColor:'#00b499', padding:10}}>
+          <Text style={{fontSize:16, color:'#fff',fontWeight:'600'}}>{x}</Text>
+          </View>
+          <Image source ={{uri: "https://robohash.org/recusandaeperspiciatisunde.png?size=50x50&set=set1"}} resizeMode ="contain" style={{height:30, width:30, margin:5, borderRadius:25, backgroundColor:'#f8f8f8'}} />
+
+          </View>
+          )}
   }
 
   render() {
@@ -66,8 +81,11 @@ export default class Inbox extends Component {
           dataSource = {this.state.datasource}
           renderRow = {(rowData) => this.eachMessage(rowData)}/>
           
-          <View style={{alignSelf:'flex-end', height:100, backgroundColor:'#fff'}}>
-          <TextInput />
+          <View style={{alignSelf:'flex-end', padding:10, height:60, width:width, borderTopWidth:1, borderColor:'#f3f3f3', backgroundColor:'#fff'}}>
+          <TextInput 
+          style = {{flex:1,}}
+          placeholder ="Enter Your message here" 
+          />
           </View>
       
       </View>
