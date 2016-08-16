@@ -12,6 +12,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 
 
 import Home from './home';
+import Convo from './each_convo';
 import Inbox from './inbox';
 import Invite from './invite';
 import Profile from './profile';
@@ -88,6 +89,15 @@ class Root extends Component {
               navigator={navigator} />
       );
     }
+    if (routeId === 'convo') {
+      return (
+          <Convo
+              {...this.props}
+              data ={route.data}
+              close = {() => this.closeControlPanel()}
+              navigator={navigator} />
+      );
+    }
     if (routeId === 'wish') {
       return (
         <Wish
@@ -141,7 +151,7 @@ class Root extends Component {
      <Navigator
      style={{flex: 1}}
      ref={'NAV'}
-     initialRoute={{id: 'home', name: 'home'}}
+     initialRoute={{id: 'convo', name: 'convo'}}
      renderScene={this.renderScene.bind(this)}/>
      </Drawer>
      </View>
