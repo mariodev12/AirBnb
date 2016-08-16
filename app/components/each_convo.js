@@ -8,10 +8,12 @@ import React, { Component } from 'react';
 import EachMessage from './inbox_widgets/eachMessage'
 import TitleBar from './inbox_widgets/titleBar'
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import InvertibleScrollView from 'react-native-invertible-scroll-view';
 import {
   AppRegistry,
   StyleSheet,
   ListView,
+  TextInput,
   Image,
   Text,
   View
@@ -57,12 +59,16 @@ export default class Inbox extends Component {
       </View>
 
        <ListView 
+          renderScrollComponent={props => <InvertibleScrollView {...props} inverted />}
           noScroll={true}
-          style = {{flex:1, backgroundColor:'#333'}}
+          style = {{flex:1,}}
           contentContainerStyle = {{justifyContent:'flex-end'}}
           dataSource = {this.state.datasource}
-          renderRow = {(rowData) => this.eachMessage(rowData)}
-          />
+          renderRow = {(rowData) => this.eachMessage(rowData)}/>
+          
+          <View style={{alignSelf:'flex-end', height:100, backgroundColor:'#fff'}}>
+          <TextInput />
+          </View>
       
       </View>
     );
