@@ -14,7 +14,11 @@ const initialState = {
  },
  trips: {},
  listings: {},
- navigator:""
+ navigator:"",
+ navProps:{
+  name:"",
+  type:"menu"
+ }
 
 };
 
@@ -40,6 +44,12 @@ return {
   ...state,
   openMenu: false 
 };
+
+case types.NAV_TO_POP:
+return{
+  ...state,
+  navProps: {name:action.name, type:"pop"}
+}
 
 case types.CHANGE_NAV_STYLE:
 console.log(action.prop)

@@ -25,6 +25,13 @@ export function changeNav(propz){
   }
 }
 
+export function navToPop(propz){
+  console.log(propz)
+  return{
+  type: types.NAV_TO_POP,
+  name: propz
+  }
+}
 export function navigate(id){
   return {
     type: types.NAVTO,

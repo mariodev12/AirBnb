@@ -22,7 +22,7 @@ import {
 } from 'react-native';
 
 var count;
-var convo = ["Are you a robot though dude?", "Working on it man", "Yeah Whatever fam. Call me when you start taking life seriously"]
+var convo = [{note:"Are you a robot though dude?", person:2}, {person:1, note:"Working on it man"}, {note:"Yeah Whatever fam. Call me when you start taking life seriously", person:2}]
 
 var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 
@@ -33,23 +33,25 @@ export default class Inbox extends Component {
     console.log(this.props)
     this.props.actions.changeNav('light')
     this.state = {
-      datasource: ds.cloneWithRows(convo.reverse())
+      datasource: ds.cloneWithRows(convo.reverse()),
+      note: ""
     }
   }
 
   componentDidMount(){
     this.props.close();
+    this.props.actions.navToPop('Rude Robot')
   }
 
   eachMessage(x){
     count ++;
 
-    if(count % 2){
+    if(x.person == 2){
         return(
           <View style={{flexDirection:'row', alignItems:'flex-end', margin:5}}>
           <Image source ={{uri: "https://robohash.org/recusandaeperspiciatisunde.png?size=50x50&set=set1"}} resizeMode ="contain" style={{height:40, width:40, margin:5, borderRadius:20, backgroundColor:'#f8f8f8'}} />
           <View style={{width:220, borderRadius:10, backgroundColor:'#f4f4f4', padding:10}}>
-          <Text style={{fontSize:15, color:'#555',fontWeight:'600'}}>{x}</Text>
+          <Text style={{fontSize:15, color:'#555',fontWeight:'600'}}>{x.note}</Text>
           </View>
           </View>
           )
@@ -57,12 +59,33 @@ export default class Inbox extends Component {
         return(
           <View style={{flexDirection:'row', alignSelf:'flex-end', alignItems:'flex-end', margin:5}}>
           <View style={{width:220, borderRadius:10, backgroundColor:'#00b499', padding:10}}>
-          <Text style={{fontSize:15, color:'#fff',fontWeight:'600'}}>{x}</Text>
+          <Text style={{fontSize:15, color:'#fff',fontWeight:'600'}}>{x.note}</Text>
           </View>
           <Image source ={{uri: "https://scontent-dft4-1.xx.fbcdn.net/v/t1.0-9/13434970_10209841206091706_4316142461215331993_n.jpg?oh=6dcd8a17df9c06adfaab46ac1e108d52&oe=58271748"}} resizeMode ="contain" style={{height:40, width:40, margin:5, borderRadius:20, backgroundColor:'#f8f8f8'}} />
 
           </View>
           )}
+  }
+  submitThis(){
+
+    convo.push({person:1, note:this.state.note})
+
+    this.setState({
+      datasource: ds.cloneWithRows(convo.reverse())
+    })
+
+    setTimeout(() => {
+      this.similator();
+    }, 1000);
+
+  }
+
+  similator(){
+    convo.reverse();
+    convo.push({person:2, note:"Fuck you Sam. Fuck you"})
+    this.setState({
+      datasource: ds.cloneWithRows(convo.reverse())
+    })
   }
 
   render() {
@@ -85,6 +108,8 @@ export default class Inbox extends Component {
           <View style={{alignSelf:'flex-end', padding:10, height:60, width:width, borderTopWidth:1, borderColor:'#f3f3f3', backgroundColor:'#fff'}}>
           <TextInput 
           style = {{flex:1,}}
+          onChangeText = {(text) => this.setState({note:text})}
+          onSubmitEditing = {() => this.submitThis()}
           placeholder ="Enter Your message here" 
           />
           </View>
