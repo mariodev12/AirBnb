@@ -147,11 +147,11 @@ class Root extends Component {
         panCloseMask={0.2}
         content={<ControlPanel {...this.props} onPress = {() => this.closeControlPanel()}/>}
         >
-      <Nav {...this.props} onPress = {() => this.openControlPanel()}  />
+      <Nav {...this.props} pop = {() => this.refs.NAV} onPress = {() => this.openControlPanel()}  />
      <Navigator
      style={{flex: 1}}
      ref={'NAV'}
-     initialRoute={{id: 'convo', name: 'convo'}}
+     initialRoute={{id: 'home', name: 'home'}}
      renderScene={this.renderScene.bind(this)}/>
      </Drawer>
      </View>

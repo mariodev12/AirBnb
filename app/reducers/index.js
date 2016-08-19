@@ -17,7 +17,8 @@ const initialState = {
  navigator:"",
  navProps:{
   name:"",
-  type:"menu"
+  type:"menu",
+  icon:"menu"
  }
 
 };
@@ -48,7 +49,7 @@ return {
 case types.NAV_TO_POP:
 return{
   ...state,
-  navProps: {name:action.name, type:"pop"}
+  navProps: {name:action.name, type:"pop", icon:'arrow-back'}
 }
 
 case types.CHANGE_NAV_STYLE:
@@ -57,13 +58,23 @@ console.log(action.prop)
 if(action.prop == "light"){
 return {
 ...state,
-navStyle : {backgroundColor:'#fff', color:'#333'}
+navStyle : {backgroundColor:'#fff', color:'#444'},
+navProps:{
+  name:"",
+  type:"menu",
+  icon:"menu"
+ }
 }
 }
 else if(action.prop == "dark"){
   return{
     ...state,
-    navStyle: {backgroundColor:'#ff585b', color:'#fff'}
+    navStyle: {backgroundColor:'#ff585b', color:'#fff'},
+    navProps:{
+  name:"",
+  type:"menu",
+  icon:"menu"
+ }
   }
 } 
 

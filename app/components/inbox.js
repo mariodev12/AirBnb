@@ -256,7 +256,7 @@ export default class Inbox extends Component {
        <ListView 
           noScroll={true}
           dataSource = {this.state.datasource}
-          renderRow = {(rowData) => <EachMessage rowData = {rowData} />}
+          renderRow = {(rowData) => <EachMessage {...this.props} rowData = {rowData} />}
           />
        </View>
       </ScrollView>

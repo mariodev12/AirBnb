@@ -10,7 +10,7 @@ constructor(props){
 }
   render() {
     return (
-    	<TouchableOpacity>
+    	<TouchableOpacity onPress ={() => this.props.state.navigator.push({id: 'convo'})}>
       <View style= {{padding:10, flexDirection:'row', borderBottomWidth:1, borderColor:'#e3e3e3'}}>
       <Image source ={{uri: this.props.rowData.avatar}} resizeMode ="contain" style={{height:50, width:50, margin:10, borderRadius:25, backgroundColor:'#f8f8f8'}} />
       <View style={{alignSelf:'center', justifyContent:'center'}}>
